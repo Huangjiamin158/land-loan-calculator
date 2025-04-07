@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://landloan-calculator.com'),
@@ -36,6 +37,18 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://landloan-calculator.com" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9N67R9D2X8"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9N67R9D2X8');
+          `}
+        </Script>
       </head>
       <body>{children}</body>
     </html>
